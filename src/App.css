@@ -1,13 +1,21 @@
 .App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
 }
 
 .code-wrap {
   display: flex;
   margin: 50px auto;
+  padding-left: 50px;
+  padding-right: 25px;
   align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 1152px) {
+  .code-wrap {
+    flex-direction: row;
+  }
 }
 
 .column {

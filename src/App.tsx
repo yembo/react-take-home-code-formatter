@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
   const renderFormattedCode = () => {
     // TODO
     // Rules: All numbers red, All vars blue and bold, All reserved keywords bold, All string literals green
+    return lines.map((line, i) => <div key={i} className='line'>{line}</div>);
   };
 
 

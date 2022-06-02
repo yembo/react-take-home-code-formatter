@@ -17,7 +17,14 @@ function App() {
   const renderFormattedCode = () => {
     // TODO
     // Rules: All numbers red, All vars blue and bold, All reserved keywords bold, All string literals green
-    return lines.map((line, i) => <div key={i} className='line'>{line}</div>);
+    return lines.map((line, i) => {
+      const brokenUp = line.split(' ')
+      // .match(/`((\\`)|[^`(\\`)])+`|[a-zA-Z\s-\(\)\.\;]+/g)
+
+      console.log(brokenUp);
+      
+      return <div key={i} className='line'>{line}</div>
+  });
   };
 
 

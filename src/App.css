@@ -32,3 +32,19 @@ button {
 .line:nth-child(3) {
   margin-left: 20px;
 }
+
+.number {
+  color: red;
+}
+
+.variable {
+  color: blue;
+}
+
+.string {
+  color: green;
+}
+
+.keyword, .variable {
+  font-weight: bold;
+}

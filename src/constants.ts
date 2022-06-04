@@ -28,10 +28,7 @@ export const REGEX_GROUPS: {
 export let REGEXES: RegExp =
   /"[^"]*"|`[^`]*`|'[^']*'|\b(for|while|let|const|var|try|catch)\b|\d+\.?\d*|[(]|[a-zA-Z\s;=<>\.)|&^{}\+]+/g;
 
-export const VARIABLE_BUILDERS: string[] = ["const", "let", "var"];
-
 export const RESERVED_KEYWORDS: string[] = [
-  ...VARIABLE_BUILDERS,
   "abstract",
   "arguments",
   "await",
@@ -42,6 +39,7 @@ export const RESERVED_KEYWORDS: string[] = [
   "catch",
   "char",
   "class",
+  "const",
   "continue",
   "debugger",
   "default",
@@ -67,6 +65,7 @@ export const RESERVED_KEYWORDS: string[] = [
   "instanceof",
   "int",
   "interface",
+  "let",
   "long",
   "native",
   "new",
@@ -88,28 +87,10 @@ export const RESERVED_KEYWORDS: string[] = [
   "true",
   "try",
   "typeof",
+  "var",
   "void",
   "volatile",
   "while",
   "with",
   "yield",
 ];
-
-/**
- * if (!className && piece.match(REGEX_GROUPS.variable)) {
-            console.log(piece.match(REGEX_GROUPS.variable));
-
-            const variables = piece.split(" ");
-
-            for (const variable of variables) {
-              console.log(variable);
-
-              className = getVariableClassName(variable);
-              items.push(
-                <span className={className} key={`code-${j}`}>
-                  {piece}
-                </span>
-              );
-            }
-          }
- */

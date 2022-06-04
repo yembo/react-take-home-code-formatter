@@ -37,14 +37,14 @@ button {
   color: red;
 }
 
-.variable {
+.string {
   color: blue;
 }
 
-.string {
+.string-literal, .template-literal {
   color: green;
 }
 
-.keyword, .variable {
+.reserved-keyword, .string {
   font-weight: bold;
 }

@@ -73,12 +73,18 @@ const getLiterals = (piece: string): Array<Piece> => {
           String.raw`(\$\{+(${partToReplace.trim()})\}+)`
         );
         part = part.replace(replaceRegExp, "");
+
         pieces.push({
           className: REGEX_ENUMS.TEMPLATE_LITERAL,
           value: part,
         });
         partToReplace = "";
       }
+    } else {
+      pieces.push({
+        className: REGEX_ENUMS.TEMPLATE_LITERAL,
+        value: part.slice(4),
+      });
     }
   }
   return pieces;
@@ -91,9 +97,12 @@ const getVariables = (piece: string): Array<Piece> => {
 
   for (let index = 0; index < variables.length; index++) {
     const variable = variables[index];
+    console.log(variable);
+
     if (
       variable.includes(".") ||
-      (index < variables.length - 1 && variables[index + 1].includes("("))
+      (index < variables.length - 1 && variables[index + 1].includes("(")) ||
+      (index < variables.length - 1 && variables[index + 1].includes("."))
     ) {
       pieces.push({
         className: getClassName(variable),

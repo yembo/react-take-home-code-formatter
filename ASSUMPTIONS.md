@@ -3,11 +3,10 @@
 - No recursive string literals e.g.
 
 ```
-`a string literal with a ${string literal that has another a`${string} ${literal}`}`
+`a string literal with a ${string literal that has another `${string} ${literal} ${i${n${s${i${d${e}}}}}}`}`
 ```
 
-- A variable is something that has been declared in the context of the 'unformatted code' e.g.
-  `a++` where a is valid because of a preceding declaration `var a = 25`
+- A variable does not have to have been initialized in the context of the 'unformatted code' e.g. `error` in `catch(error)`
 - Spacing does not need to be fixed e.g.
 
 ```
@@ -15,7 +14,7 @@
   for(let i=1;i<>10;i++){console.log('hello world')}
 ```
 
-- User is not expected to supply bad code e.g. `const const a = 5`
+- User is not expected to supply bad code according to ES6 standards e.g. `const const a = 5`
 
 ### Styling
 

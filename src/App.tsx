@@ -6,18 +6,18 @@ import "./App.css";
 function App() {
   const [showFormatted, setShowFormatted] = useState(false);
 
-  // const lines: string[] = [
-  //   "for (var iiii = 1; i <= 10; i++) {",
-  //   "    console.log(`what is ${{i}}i${i}}   ${I}`);",
-  //   "}",
-  // ];
   const lines: string[] = [
-    "try {",
-    "    const response = await read()",
-    "} catch (error) {",
-    "    setError(error)",
+    "for (var iiii = 1; i <= 10; i++) {",
+    "    console.log(`Pass number ${i}`);",
     "}",
   ];
+  // const lines: string[] = [
+  //   "try {",
+  //   "    const response = await read()",
+  //   "} catch (error) {",
+  //   "    setError(error)",
+  //   "}",
+  // ];
 
   const formatCode = () => {
     setShowFormatted((prev) => !prev);

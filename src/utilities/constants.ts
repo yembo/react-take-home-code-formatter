@@ -1,13 +1,3 @@
-export const ENUMS = {
-  NUMBER: "number",
-  RESERVED_KEYWORD: "reserved-keyword",
-  VARIABLE: "variable",
-  STRING: "string",
-  STRING_LITERAL: "string-literal",
-  TEMPLATE_LITERAL: "template-literal",
-  DEFAULT: "default",
-};
-
 export const REGEX_GROUPS: {
   number: RegExp;
   reservedKeyword: RegExp;
@@ -18,15 +8,16 @@ export const REGEX_GROUPS: {
   variable_split: RegExp;
 } = {
   number: /\d+\.?\d*/,
-  reservedKeyword: /\b(for|while|let|const|var|try|catch)\b/,
+  reservedKeyword: /(for|while|let|const|var|try|catch|async|await)/,
   string: /[a-zA-Z]/g,
   stringLiteral: /"[^"]*"|'[^']*'/,
   templateLiteral: /`[^`]*`/,
   variable: /([a-zA-Z_][a-zA-Z0-9_]*)(\s?)([<=>,;){\s%\/]|[\+\*\-]{1,2})/g,
   variable_split: /([a-zA-Z_][a-zA-Z0-9_]*)|([<=>,;){\s%\/]|[\+\*\-]{1,2})/g,
 };
+
 export let REGEXES: RegExp =
-  /"[^"]*"|`[^`]*`|'[^']*'|\b(for|while|let|const|var|try|catch)\b|\d+\.?\d*|[(]|[a-zA-Z\s;=<>\.)|&^{}\+]+/g;
+  /("[^"]*"|`[^`]*`|'[^']*'|for|while|let|const|var|try|catch|async|await|\d+\.?\d*)/g;
 
 export const RESERVED_KEYWORDS: string[] = [
   "abstract",

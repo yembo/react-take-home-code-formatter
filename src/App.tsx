@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { getPiecesRegex } from "./helpers";
+import { getPiecesRegex } from "./utilities/helpers";
 
 import "./App.css";
 
 function App() {
   const [showFormatted, setShowFormatted] = useState(false);
 
+  // const lines: string[] = [
+  //   "for (var iiii = 1; i <= 10; i++) {",
+  //   "    console.log(`what is ${{i}}i${i}}   ${I}`);",
+  //   "}",
+  // ];
   const lines: string[] = [
-    "for (let i = 1; i <= 10; i++) {",
-    "    console.log(`what is ${{i}}i${i}}   ${I}`);",
+    "try {",
+    "    const response = await read()",
+    "} catch (error) {",
+    "    setError(error)",
     "}",
   ];
 
@@ -25,21 +32,24 @@ function App() {
   };
 
   const renderFormattedCode = () => {
+    // let lineKey = crypto.randomUUID()
     return lines.map((line, i) => {
       const pieces = getPiecesRegex(line);
 
       return (
-        <div key={i} className="line">
-          {pieces.map((piece, i) => {
-            if (piece.className)
-              return (
-                <span className={piece.className} key={i}>
-                  {piece.value}
-                </span>
-              );
-            else return piece.value;
-          })}
-        </div>
+        <>
+          <div key={`line-${i}`} className="line">
+            {pieces.flat(2).map((piece, i) => {
+              if (piece.className)
+                return (
+                  <span className={piece.className} key={`piece-${i}`}>
+                    {piece.value}
+                  </span>
+                );
+              else return piece.value;
+            })}
+          </div>
+        </>
       );
     });
   };

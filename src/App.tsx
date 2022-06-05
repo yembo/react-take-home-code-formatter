@@ -1,6 +1,5 @@
 import "./App.css";
 import Highlighter from "./components/Highlighter";
-import HighlighterV2 from "./components/HighlighterV2";
 
 function App() {
   const lines: string[] = [
@@ -11,7 +10,6 @@ function App() {
   return (
     <main className="App">
       <Highlighter lines={lines} />
-      {/* <HighlighterV2 /> */}
     </main>
   );
 }

@@ -1,10 +1,10 @@
 import { fireEvent, render } from "@testing-library/react";
-import Formatter from "./index";
+import Analyzer from "./index";
 import { ModuleProps, REGEX_ENUMS } from "../../utilities";
 
-describe("Formatter", () => {
+describe("Analyzer", () => {
   const setup = (props: ModuleProps) => {
-    const utils = render(<Formatter {...props} />);
+    const utils = render(<Analyzer {...props} />);
     return utils;
   };
 
@@ -12,24 +12,24 @@ describe("Formatter", () => {
     const lines = [""];
     const { getByTestId, getByText } = setup({ lines });
 
-    const unformattedElement = getByText(/Unformatted/i);
-    expect(unformattedElement).toBeInTheDocument();
-    const formatCode = getByTestId("toggle-format");
-    expect(formatCode).toBeInTheDocument();
-    fireEvent.click(formatCode);
-    const formattedElement = getByText(/Formatted/i);
-    expect(formattedElement).toBeInTheDocument();
+    const unanalyzedElement = getByText(/Unanalyzed/i);
+    expect(unanalyzedElement).toBeInTheDocument();
+    const analyzeCode = getByTestId("toggle-analyze");
+    expect(analyzeCode).toBeInTheDocument();
+    fireEvent.click(analyzeCode);
+    const analyzedElement = getByText(/Clear\sAnalysis/i);
+    expect(analyzedElement).toBeInTheDocument();
   });
 
   test("Valid Line", () => {
     const lines = ["const a = 1 + `${b}`"];
     const { getByTestId, getByText } = setup({ lines });
 
-    const unformattedElement = getByText(/Unformatted/i);
-    expect(unformattedElement).toBeInTheDocument();
-    const formatCode = getByTestId("toggle-format");
-    expect(formatCode).toBeInTheDocument();
-    fireEvent.click(formatCode);
+    const unanalyzedElement = getByText(/Unanalyzed/i);
+    expect(unanalyzedElement).toBeInTheDocument();
+    const analyzeCode = getByTestId("toggle-analyze");
+    expect(analyzeCode).toBeInTheDocument();
+    fireEvent.click(analyzeCode);
     const number = getByTestId(`${REGEX_ENUMS.NUMBER}: 1`);
     expect(number).toBeInTheDocument();
     const templateLiteral = getByTestId(

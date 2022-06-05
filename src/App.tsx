@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Formatter from "./components/Formatter";
+// import { useState } from "react";
+import Analyzer from "./components/Analyzer";
 import "./App.css";
 
 function App() {
@@ -8,11 +8,11 @@ function App() {
     "    console.log(`Pass number ${a}`);",
     "}",
   ];
-  const [lines /*setLines*/] = useState(defaultLines);
+  // const [lines /*setLines*/] = useState(defaultLines);
 
   return (
     <main className="App">
-      <Formatter lines={lines} />
+      <Analyzer lines={defaultLines} />
     </main>
   );
 }

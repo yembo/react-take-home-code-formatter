@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { getPiecesRegex } from "../../utilities/helpers";
+import { getPiecesRegex } from "./utilities/helpers";
+import { HighlighterProps } from "./utilities/interfaces";
 
 import "./index.css";
-
-interface HighlighterProps {
-  lines: string[];
-}
 
 function Highlighter(props: HighlighterProps) {
   const { lines } = props;
@@ -52,16 +49,16 @@ function Highlighter(props: HighlighterProps) {
   return (
     <div className="Highlighter">
       <div className="code-wrap">
-        <div className="column">
+        <div className="column" key="column-1">
           <h1>Code</h1>
           {renderUnformattedCode()}
         </div>
-        <div className="column">
+        <div className="column" key="column-2">
           <button data-testid="toggle-format" onClick={formatCode}>
             {showFormatted ? "Remove Formatting" : "Format Code"}
           </button>
         </div>
-        <div className="column">
+        <div className="column" key="column-3">
           <h1>{showFormatted ? "Formatted" : "Unformatted"}</h1>
           {showFormatted ? renderFormattedCode() : renderUnformattedCode()}
         </div>

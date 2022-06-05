@@ -1,6 +1,3 @@
-import { Fragment, useState } from "react";
-import { getPiecesRegex } from "./utilities/helpers";
-
 import "./App.css";
 import Highlighter from "./components/Highlighter";
 
@@ -10,7 +7,11 @@ function App() {
     "    console.log(`Pass number ${a}`);",
     "}",
   ];
-  return <Highlighter lines={lines} />;
+  return (
+    <main className="App">
+      <Highlighter lines={lines} />
+    </main>
+  );
 }
 
 export default App;

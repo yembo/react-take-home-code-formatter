@@ -3,3 +3,7 @@ export interface PieceProps {
   testId: string;
   value: string;
 }
+
+export interface HighlighterProps {
+  lines: string[];
+}

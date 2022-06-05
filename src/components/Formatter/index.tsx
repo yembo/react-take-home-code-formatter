@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { getPiecesRegex, ModuleProps } from "../../utilities";
+import { getPiecesRegex, ModuleProps, MODULE_ENUMS } from "../../utilities";
 
 import "./index.css";
 
 function Formatter(props: ModuleProps) {
+  const [options, setOptions] = useState([MODULE_ENUMS.syntax_highlighter]);
   const { lines } = props;
   const [showFormatted, setShowFormatted] = useState(false);
 

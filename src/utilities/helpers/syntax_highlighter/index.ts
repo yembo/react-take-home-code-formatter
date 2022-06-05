@@ -1,4 +1,4 @@
-import { REGEXES, REGEX_GROUPS } from "../../constants";
+import { REGEX_GROUPS, REGEXES } from "../../constants";
 import { REGEX_ENUMS } from "../../enums";
 import { PieceProps } from "../../interfaces";
 
@@ -8,17 +8,17 @@ import { PieceProps } from "../../interfaces";
  * @returns string
  */
 export const getClassName = (piece: string): string => {
-  if (REGEX_GROUPS.number.test(piece)) {
-    return REGEX_ENUMS.NUMBER;
-  }
-  if (REGEX_GROUPS.reservedKeyword.test(piece)) {
-    return REGEX_ENUMS.RESERVED_KEYWORD;
-  }
   if (REGEX_GROUPS.stringLiteral.test(piece)) {
     return REGEX_ENUMS.STRING_LITERAL;
   }
   if (REGEX_GROUPS.templateLiteral.test(piece)) {
     return REGEX_ENUMS.TEMPLATE_LITERAL;
+  }
+  if (REGEX_GROUPS.number.test(piece)) {
+    return REGEX_ENUMS.NUMBER;
+  }
+  if (REGEX_GROUPS.reservedKeyword.test(piece)) {
+    return REGEX_ENUMS.RESERVED_KEYWORD;
   }
   return "";
 };

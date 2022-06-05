@@ -27,28 +27,40 @@ function Analyzer(props: ModuleProps) {
     ));
   };
 
-  const renderAnalyzed = () => {
+  const renderAnalyzed = (module: string) => {
     return lines.map((line, lineIndex) => {
-      const pieces = getPiecesRegex(line);
-      return (
-        <>
-          <div key={`analyzed-line-${lineIndex}`} className="line">
-            {pieces.flat(2).map((piece, i) => {
-              if (piece.className)
-                return (
-                  <span
-                    className={piece.className}
-                    data-testid={piece.testId}
-                    key={`piece-${i}`}
-                  >
-                    {piece.value}
-                  </span>
-                );
-              else return piece.value;
-            })}
+      if (module === MODULE_ENUMS.syntax_highlighter) {
+        const pieces = getPiecesRegex(line);
+        return (
+          <>
+            <div key={`syntax-highlighted-${lineIndex}`} className="line">
+              {pieces.flat(2).map((piece, i) => {
+                if (piece.className)
+                  return (
+                    <span
+                      className={piece.className}
+                      data-testid={piece.testId}
+                      key={`piece-${i}`}
+                    >
+                      {piece.value}
+                    </span>
+                  );
+                else return piece.value;
+              })}
+            </div>
+          </>
+        );
+      }
+      if (module === MODULE_ENUMS.minify) {
+        line = line.trimEnd().trimStart();
+
+        return (
+          <div key={`minified-${lineIndex}`} className="line">
+            {line.trimEnd().trimStart()}
           </div>
-        </>
-      );
+        );
+      }
+      return <div>Not Implemented yet.</div>;
     });
   };
 
@@ -72,7 +84,7 @@ function Analyzer(props: ModuleProps) {
         </div>
         <div className="column" key="column-3">
           <h1>{showAnalysed ? "Analyzed" : "Unanalyzed"}</h1>
-          {showAnalysed ? renderAnalyzed() : renderUnanalyzed()}
+          {showAnalysed ? renderAnalyzed(module) : renderUnanalyzed()}
         </div>
       </div>
     </div>

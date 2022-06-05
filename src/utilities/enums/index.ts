@@ -9,8 +9,6 @@ export const REGEX_ENUMS = {
 
 export const MODULE_ENUMS = {
   error_highlighter: "error_highlighter",
-  error_tracker: "error_tracker",
   syntax_highlighter: "syntax_highlighter",
   minify: "minify",
-  performance: "performance",
 };

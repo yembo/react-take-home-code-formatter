@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import Analyzer from "./components/Analyzer";
 import "./App.css";
 
@@ -8,7 +7,6 @@ function App() {
     "    console.log(`Pass number ${a}`);",
     "}",
   ];
-  // const [lines /*setLines*/] = useState(defaultLines);
 
   return (
     <main className="App">

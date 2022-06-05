@@ -4,16 +4,12 @@ export const REGEX_GROUPS: {
   string: RegExp;
   stringLiteral: RegExp;
   templateLiteral: RegExp;
-  variable: RegExp;
-  variable_split: RegExp;
 } = {
   number: /\d+\.?\d*/,
   reservedKeyword: /(for|while|let|const|var|try|catch|async|await)/,
   string: /[a-zA-Z]/g,
   stringLiteral: /"[^"]*"|'[^']*'/,
   templateLiteral: /`[^`]*`/,
-  variable: /([a-zA-Z_][a-zA-Z0-9_]*)(\s?)([<=>,;){\s%\/]|[\+\*\-]{1,2})/g,
-  variable_split: /([a-zA-Z_][a-zA-Z0-9_]*)|([<=>,;){\s%\/]|[\+\*\-]{1,2})/g,
 };
 
 export let REGEXES: RegExp =

@@ -44,10 +44,6 @@ const getVariableClassName = (piece: string): string => {
   return "";
 };
 
-// const getVariables = (piece: string): RegExpMatchArray | null =>
-//   piece.match(REGEX_GROUPS.variable) &&
-//   piece.match(REGEX_GROUPS.variable_split);
-
 const getLiterals = (piece: string): Array<PieceProps> => {
   // we split the string based on when we encounter ${variable}
   const parts = piece.split(/(?=\$\{+(\w+)\}+)/g);

@@ -210,4 +210,11 @@ export const getPiecesBruteForce = (line: string): Array<Piece> => {
 };
 */
 
+// const getVariables = (piece: string): RegExpMatchArray | null =>
+//   piece.match(REGEX_GROUPS.variable) &&
+//   piece.match(REGEX_GROUPS.variable_split);
+
+// variable: /([a-zA-Z_][a-zA-Z0-9_]*)(\s?)([<=>,;){\s%/]|[+*-]{1,2})/g,
+// variable_split: /([a-zA-Z_][a-zA-Z0-9_]*)|([<=>,;){\s%\/]|[\+\*\-]{1,2})/g,
+
 export {};

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Formatter from "./components/Formatter";
-import { MODULE_ENUMS } from "./utilities";
 import "./App.css";
 
 function App() {
@@ -10,15 +9,10 @@ function App() {
     "}",
   ];
   const [lines /*setLines*/] = useState(defaultLines);
-  const [options, setOptions] = useState([MODULE_ENUMS.syntax_highlighter]);
 
-  const moduleProps = {
-    lines,
-    options,
-  };
   return (
     <main className="App">
-      <Formatter {...moduleProps} />
+      <Formatter lines={lines} />
     </main>
   );
 }

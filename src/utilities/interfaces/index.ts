@@ -6,4 +6,5 @@ export interface PieceProps {
 
 export interface ModuleProps {
   lines: string[];
+  options: string[];
 }

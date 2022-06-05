@@ -6,3 +6,11 @@ export const REGEX_ENUMS = {
   TEMPLATE_LITERAL: "template-literal",
   DEFAULT: "default",
 };
+
+export const MODULE_ENUMS = {
+  error_highlighter: "error_highlighter",
+  error_tracker: "error_tracker",
+  syntax_highlighter: "syntax_highlighter",
+  minify: "minify",
+  performance: "performance",
+};

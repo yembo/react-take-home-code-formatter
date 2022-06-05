@@ -1,11 +1,11 @@
 import { fireEvent, render } from "@testing-library/react";
-import Highlighter from "./index";
-import { REGEX_ENUMS } from "../../utilities/enums";
-import { HighlighterProps } from "../../utilities/interfaces";
+import Formatter from "./index";
+import { REGEX_ENUMS } from "../../utilities";
+import { ModuleProps } from "../../utilities/interfaces";
 
-describe("Highlighter", () => {
-  const setup = (props: HighlighterProps) => {
-    const utils = render(<Highlighter {...props} />);
+describe("Formatter", () => {
+  const setup = (props: ModuleProps) => {
+    const utils = render(<Formatter {...props} />);
     return utils;
   };
 

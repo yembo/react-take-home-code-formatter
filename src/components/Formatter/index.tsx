@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { getPiecesRegex } from "../../utilities/helpers";
-import { HighlighterProps } from "../../utilities/interfaces";
+import { ModuleProps } from "../../utilities";
 
 import "./index.css";
 
-function Highlighter(props: HighlighterProps) {
+function Formatter(props: ModuleProps) {
   const { lines } = props;
   const [showFormatted, setShowFormatted] = useState(false);
 
@@ -47,7 +47,7 @@ function Highlighter(props: HighlighterProps) {
   };
 
   return (
-    <div className="Highlighter">
+    <div className="Formatter">
       <div className="code-wrap">
         <div className="column" key="column-1">
           <h1>Code</h1>
@@ -67,4 +67,4 @@ function Highlighter(props: HighlighterProps) {
   );
 }
 
-export default Highlighter;
+export default Formatter;

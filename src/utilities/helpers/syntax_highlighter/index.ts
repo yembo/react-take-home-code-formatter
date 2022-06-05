@@ -1,6 +1,6 @@
-import { REGEXES, REGEX_GROUPS, RESERVED_KEYWORDS } from "./constants";
-import { REGEX_ENUMS } from "./enums";
-import { PieceProps } from "./interfaces";
+import { REGEXES, REGEX_GROUPS } from "../../constants";
+import { REGEX_ENUMS } from "../../enums";
+import { PieceProps } from "../../interfaces";
 
 /**
  * use regex to evaluate what css class name is relevant to a given piece

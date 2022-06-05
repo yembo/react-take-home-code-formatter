@@ -7,7 +7,7 @@ interface DropdownProps {
   label: string;
   value: string;
   options: OptionProps[];
-  onChange: () => void;
+  onChange: (event: any) => void;
 }
 
 const Dropdown = (props: DropdownProps) => {
@@ -15,7 +15,7 @@ const Dropdown = (props: DropdownProps) => {
 
   return (
     <label>
-      {label}
+      <div>{label}</div>
       <select value={value} onChange={onChange}>
         {options.map((option) => (
           <option value={option.value}>{option.label}</option>

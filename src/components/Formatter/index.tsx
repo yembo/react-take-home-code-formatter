@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { getPiecesRegex, ModuleProps, MODULE_ENUMS } from "../../utilities";
+import Dropdown from "../Dropdown";
 
 import "./index.css";
 
 function Formatter(props: ModuleProps) {
-  const [options, setOptions] = useState([MODULE_ENUMS.syntax_highlighter]);
-  const { lines } = props;
   const [showFormatted, setShowFormatted] = useState(false);
+  const [module, setModule] = useState(MODULE_ENUMS.syntax_highlighter);
+
+  const { lines } = props;
+  const handleChange = (event: any) => {
+    setModule(event.target.value);
+  };
+  const options = Object.values(MODULE_ENUMS).map((option) => ({
+    label: option.replace(/[-_]/, " "),
+    value: option,
+  }));
 
   const formatCode = () => {
     setShowFormatted((prev) => !prev);
@@ -23,7 +32,6 @@ function Formatter(props: ModuleProps) {
   const renderFormattedCode = () => {
     return lines.map((line, lineIndex) => {
       const pieces = getPiecesRegex(line);
-
       return (
         <>
           <div key={`formatted-line-${lineIndex}`} className="line">
@@ -57,6 +65,12 @@ function Formatter(props: ModuleProps) {
           <button data-testid="toggle-format" onClick={formatCode}>
             {showFormatted ? "Remove Formatting" : "Format Code"}
           </button>
+          <Dropdown
+            label="select a module to modify how the code is formatted"
+            options={options}
+            value={module}
+            onChange={handleChange}
+          />
         </div>
         <div className="column" key="column-3">
           <h1>{showFormatted ? "Formatted" : "Unformatted"}</h1>

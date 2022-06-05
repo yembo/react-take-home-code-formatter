@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { getPiecesRegex } from "../../utilities/helpers";
-import { ModuleProps } from "../../utilities";
+import { getPiecesRegex, ModuleProps } from "../../utilities";
 
 import "./index.css";
 

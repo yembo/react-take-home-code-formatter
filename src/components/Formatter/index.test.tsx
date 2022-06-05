@@ -1,7 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import Formatter from "./index";
-import { REGEX_ENUMS } from "../../utilities";
-import { ModuleProps } from "../../utilities/interfaces";
+import { ModuleProps, MODULE_ENUMS, REGEX_ENUMS } from "../../utilities";
 
 describe("Formatter", () => {
   const setup = (props: ModuleProps) => {
@@ -11,7 +10,8 @@ describe("Formatter", () => {
 
   test("Supplying No Lines Works", () => {
     const lines = [""];
-    const { getByTestId, getByText } = setup({ lines });
+    const options = [MODULE_ENUMS.syntax_highlighter];
+    const { getByTestId, getByText } = setup({ lines, options });
 
     const unformattedElement = getByText(/Unformatted/i);
     expect(unformattedElement).toBeInTheDocument();
@@ -24,7 +24,8 @@ describe("Formatter", () => {
 
   test("Valid Line", () => {
     const lines = ["const a = 1 + `${b}`"];
-    const { getByTestId, getByText } = setup({ lines });
+    const options = [MODULE_ENUMS.syntax_highlighter];
+    const { getByTestId, getByText } = setup({ lines, options });
 
     const unformattedElement = getByText(/Unformatted/i);
     expect(unformattedElement).toBeInTheDocument();

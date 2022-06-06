@@ -46,7 +46,9 @@ const getVariableClassName = (piece: string): string => {
 
 const getLiterals = (piece: string): Array<PieceProps> => {
   // we split the string based on when we encounter ${variable}
+  //  `Pass number ${a}` =>  ['`Pass number ', 'a', '${a}`']
   const parts = piece.split(/(?=\$\{+(\w+)\}+)/g);
+
   const pieces = [];
   let partToReplace = "";
   for (let index = 0; index < parts.length; index++) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getPiecesRegex, ModuleProps, MODULE_ENUMS } from "../../utilities";
-import Dropdown from "../Dropdown";
+import Dropdown from "../../components/Dropdown";
 
 import "./index.css";
 

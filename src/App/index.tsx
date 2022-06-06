@@ -1,4 +1,4 @@
-import Analyzer from "./components/Analyzer";
+import Analyzer from "./pages/Analyzer";
 import "./index.css";
 
 function App() {

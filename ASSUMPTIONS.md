@@ -16,6 +16,8 @@
 
 - User is not expected to supply bad code according to ES6 standards e.g. `const const a = 5`
 
+- Ignore all array/object type variables that call functions so as to avoid mixing them up with typical webapi variables e.g. console, navigator, window etc
+
 ### Styling
 
 - All numbers red,

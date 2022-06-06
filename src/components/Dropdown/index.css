@@ -1,0 +1,41 @@
+.Dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+/* reset select */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  z-index: 1;
+
+  outline: none;
+}
+
+.select {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  min-width: 15ch;
+  max-width: 30ch;
+  padding: 0.25em 0.5em;
+  text-align: center;
+  width: 100%;
+}

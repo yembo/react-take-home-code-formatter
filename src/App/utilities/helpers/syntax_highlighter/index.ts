@@ -55,6 +55,7 @@ const getLiterals = (piece: string): Array<PieceProps> => {
     if (index < parts.length - 1) {
       const partAhead = parts[index + 1];
       const partRegExp = RegExp(String.raw`(?=\$\{+(${part})\}+)`);
+
       if (partRegExp.test(partAhead)) {
         partToReplace = part;
         pieces.push({
@@ -88,8 +89,11 @@ const getLiterals = (piece: string): Array<PieceProps> => {
     } else {
       pieces.push({
         className: REGEX_ENUMS.TEMPLATE_LITERAL,
-        testId: `${REGEX_ENUMS.TEMPLATE_LITERAL}: ${part.slice(4)}`,
-        value: part.slice(4),
+        testId: `${REGEX_ENUMS.TEMPLATE_LITERAL}: ${part.replace(
+          /(?=\$\{+(\w+)\}+)/,
+          ""
+        )}`,
+        value: part.replace(/(\$\{+(\w+)\}+)/, ""),
       });
     }
   }

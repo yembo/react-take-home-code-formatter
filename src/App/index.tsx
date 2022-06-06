@@ -1,5 +1,5 @@
 import Analyzer from "./components/Analyzer";
-import "./App.css";
+import "./index.css";
 
 function App() {
   const defaultLines: string[] = [
